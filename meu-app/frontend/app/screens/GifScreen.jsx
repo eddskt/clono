@@ -1,10 +1,11 @@
 import React, { useEffect } from "react";
 import { View, Image, StyleSheet } from "react-native";
-import { useNavigation } from "@react-navigation/native";
+import { useNavigation, useRoute } from "@react-navigation/native";
 import * as SplashScreen from "expo-splash-screen";
 
 export default function GifScreen() {
   const navigation = useNavigation();
+  const route = useRoute();
 
   useEffect(() => {
     // Mantém a splash screen visível até que o GIF esteja pronto
@@ -19,7 +20,7 @@ export default function GifScreen() {
 
     // Navega automaticamente para a tela de onboarding após o tempo do GIF
     const timer = setTimeout(() => {
-      navigation.replace("Onboarding"); // Navega para a tela de onboarding
+      navigation.navigate("Onboarding"); // Navega para a tela de onboarding
     }, 3000); // Ajuste o tempo conforme necessário (tempo de duração do GIF)
 
     return () => clearTimeout(timer); // Limpa o timer se o componente for desmontado

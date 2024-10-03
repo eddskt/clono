@@ -1,13 +1,15 @@
 import React, { useEffect } from "react";
 import { View, Image, StyleSheet } from "react-native";
-import { useRouter } from "expo-router"; // Hook para navegação
+import { useNavigation, useRouter } from "expo-router"; // Hook para navegação
 
-export default function SplashScreen() {
+
+export default function SplashScreen({navigation}) {
   const router = useRouter();
+  const navigate = useNavigation();
 
   useEffect(() => {
     const timer = setTimeout(() => {
-      router.replace("/onboarding"); // Navega para a tela de onboarding
+      router.navigate("onboarding"); // Navega para a tela de onboarding
     }, 5000); // Tempo que o GIF será exibido (3 segundos)
 
     return () => clearTimeout(timer); // Limpa o timer quando o componente é desmontado

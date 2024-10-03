@@ -1,7 +1,7 @@
-import { Stack, useRouter } from "expo-router";
+import { Stack, useRouter, useNavigation } from "expo-router";
 import AntDesign from "@expo/vector-icons/AntDesign";
 import { TouchableOpacity, View, StyleSheet } from "react-native";
-import { useNavigation } from "@react-navigation/native";
+//import { useNavigation } from "@react-navigation/native";
 
 export default function Layout() {
   const router = useRouter();

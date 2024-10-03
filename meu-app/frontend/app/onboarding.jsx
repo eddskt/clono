@@ -1,4 +1,4 @@
-import React, { useState, useRef } from "react";
+import React, { useState, useRef, useEffect } from "react";
 import {
   View,
   StyleSheet,
@@ -7,7 +7,7 @@ import {
   TouchableOpacity,
   Text,
 } from "react-native";
-import { useRouter } from "expo-router";
+import { useNavigation, useRouter } from "expo-router";
 import OnboardingItem from "./components/OnboardingItem";
 import slides from "./components/slides";
 import Paginator from "./components/Paginator"; // Paginador
@@ -18,6 +18,12 @@ export default function OnboardingScreen() {
   const scrollx = useRef(new Animated.Value(0)).current;
   const slidesRef = useRef(null);
   const router = useRouter();
+  const navigation = useNavigation();
+
+  useEffect(() => {
+    navigation.setOptions({headerShown: false});
+  }, [navigation])
+  
 
   const viewableItemsChanged = useRef(({ viewableItems }) => {
     if (viewableItems.length > 0) {
